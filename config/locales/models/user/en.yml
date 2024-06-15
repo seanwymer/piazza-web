@@ -6,3 +6,7 @@ en:
           attributes:
             password:
               too_short: Your password must be at least 8 characters long
+            email:
+              taken: Email has already been taken
+            password_confirmation:
+              confirmation: Passwords must match
