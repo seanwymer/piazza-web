@@ -69,4 +69,5 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector "#current_user_name",
       text: "Jerry Seinfeld"
   end
+
 end

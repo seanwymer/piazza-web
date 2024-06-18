@@ -76,4 +76,5 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Jerry Seinfeld", @user.reload.name
   end
 
+
 end
