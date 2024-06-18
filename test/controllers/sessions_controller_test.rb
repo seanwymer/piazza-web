@@ -34,6 +34,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
     follow_redirect!
     assert_select ".notification",
-      I18n.t("sesions.destroy.success")
+      I18n.t("sessions.destroy.success")
   end
 end
