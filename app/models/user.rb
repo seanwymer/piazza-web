@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Authentication
   validates :name, presence: true
   validates :email,
     format: { with: URI::MailTo::EMAIL_REGEXP },
@@ -8,11 +9,6 @@ class User < ApplicationRecord
   has_many :organizations, through: :memberships
 
   before_validation :strip_extranous_spaces
-
-  has_secure_password
-  validates :password,
-    presence: true,
-    length: { minimum: 8 }
 
   private
 

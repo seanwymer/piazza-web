@@ -51,20 +51,4 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "johndoe@example.com", @user.email
   end
 
-  test "password length must be between 8 and ActiveModel's maximum" do
-    @user = User.new(
-      name: "Jane",
-      email: "janedoe@example.com",
-      password: ""
-    )
-    assert_not @user.valid?
-
-    @user.password = "password"
-    assert @user.valid?
-
-    max_length = ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED
-    @user.password = "a" * (max_length + 1)
-    assert_not @user.valid?
-  end
-
 end
