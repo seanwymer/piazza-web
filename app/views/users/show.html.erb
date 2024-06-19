@@ -68,6 +68,7 @@
       <% end %>
     </layout-column>
   </layout-columns>
+<% end %>
 
 <% if turbo_native_app? %>
   <ol data-controller="bridge--nav-menu">
@@ -77,7 +78,7 @@
             logout_path,
             method: :delete,
             data: {
-              bridge__nav_manu_target: "item"
+              bridge__nav_menu_target: "item"
             }
           ) %>
     </li>

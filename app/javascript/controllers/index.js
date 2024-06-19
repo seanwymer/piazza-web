@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import Bridge__LoginButtonController from "./bridge/login_button_controller"
+application.register("bridge--login-button", Bridge__LoginButtonController)
+
 import Bridge__NavMenuController from "./bridge/nav_menu_controller"
 application.register("bridge--nav-menu", Bridge__NavMenuController)
 

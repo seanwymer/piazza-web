@@ -1,2 +1,17 @@
 <h1>Feed#show</h1>
 <p>Find me in app/views/feed/show.html.erb</p>
+
+<% if turbo_native_app? %>
+  <ol data-controller="bridge--login-button">
+    <li>
+      <%= button_to(
+            t("application.navbar.login"),
+            login_path,
+            method: :get,
+            data: {
+              bridge__login_button_target: "item"
+            }
+          ) %>
+    </li>
+  </ol>
+<% end %>
