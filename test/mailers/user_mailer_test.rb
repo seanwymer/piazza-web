@@ -9,7 +9,7 @@ class UserMailerTest < ActionMailer::TestCase
   test "password reset" do
     email = UserMailer
               .with(user: @user)
-              .password_reset
+              .password_reset("reset_token")
               .deliver_now
 
     assert_match @user.name, email[:to].unparsed_value
