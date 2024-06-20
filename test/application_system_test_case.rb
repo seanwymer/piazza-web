@@ -5,6 +5,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :selenium, using: :chrome, screen_size: WINDOW_SIZE
 
   private
+
   def log_in(user, password: "password")
     visit login_path
 
@@ -15,6 +16,15 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
     click_button I18n.t("sessions.new.submit")
     assert_current_path root_path
+  end
+
+  def extract_primary_link_from_last_mail
+    mail = ActionMailer::Base.deliveries.last
+    mail_html = Nokogiri::HTML(mail.html_part.body.decoded)
+
+    primary_link = mail_html.css("a.button").attr("href").value
+    primary_link = URI(primary_link)
+    "#{primary_link.path}?#{primary_link.query}"
   end
 end
 
